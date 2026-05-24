@@ -1,0 +1,34 @@
+/*
+ * Gradle 全局配置 - 国内镜像加速
+ * 使用方法：把这个文件复制到 C:\Users\你的用户名\.gradle\init.gradle
+ * 重启 Android Studio 生效
+ */
+
+allprojects {
+    buildscript {
+        repositories {
+            maven { url 'https://maven.aliyun.com/repository/public/' }
+            maven { url 'https://maven.aliyun.com/repository/google/' }
+            maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+            google()
+            mavenCentral()
+        }
+    }
+    
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' }
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        google()
+        mavenCentral()
+    }
+}
+
+// 配置 Gradle Wrapper 下载镜像（可选）
+tasks.withType(Wrapper) {
+    distributionUrl = distributionUrl.replace(
+        "services.gradle.org/distributions", 
+        "mirrors.cloud.tencent.com/gradle"
+    )
+}

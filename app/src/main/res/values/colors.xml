@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主色调 - 绿色系 -->
+    <color name="primary">#07C160</color>
+    <color name="primary_dark">#06AD56</color>
+    <color name="primary_light">#88E8B3</color>
+
+    <!-- 背景色 -->
+    <color name="background">#FFFFFF</color>
+    <color name="background_gray">#F5F6F7</color>
+
+    <!-- 聊天气泡 -->
+    <color name="bubble_user">#95EC69</color>
+    <color name="bubble_ai">#FFFFFF</color>
+    <color name="bubble_border">#E5E6E7</color>
+
+    <!-- 文字颜色 -->
+    <color name="text_primary">#191919</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_hint">#999999</color>
+    <color name="text_white">#FFFFFF</color>
+
+    <!-- 分割线 -->
+    <color name="divider">#E8E8E8</color>
+
+    <!-- 状态色 -->
+    <color name="error">#F55C5C</color>
+    <color name="success">#52C41A</color>
+    <color name="warning">#FAAD14</color>
+</resources>
