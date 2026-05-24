@@ -5,6 +5,9 @@ on:
     branches: [ main, master ]
   workflow_dispatch:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,19 +22,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         
-    - name: Grant execute permission
-      run: |
-        chmod +x gradlew
-        ls -la gradlew
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v3
+      with:
+        gradle-version: 8.2
         
     - name: Build Debug APK
-      run: ./gradlew assembleDebug --stacktrace
-      
-    - name: List outputs
-      run: ls -la app/build/outputs/apk/debug/
+      run: gradle assembleDebug --stacktrace 2>&1 | tail -100
       
     - name: Upload APK
       uses: actions/upload-artifact@v4.1.0
+      if: success()
       with:
         name: AI-Companion-APK
         path: app/build/outputs/apk/debug/*.apk
