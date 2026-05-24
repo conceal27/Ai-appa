@@ -1,28 +1,13 @@
 package com.ai.companion.presentation
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.ui.Modifier
-import com.ai.companion.presentation.base.AICompanionTheme
-import dagger.hilt.android.AndroidEntryPoint
+import androidx.appcompat.app.AppCompatActivity
+import com.ai.companion.R
 
-@AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            AICompanionTheme {
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    AICompanionApp()
-                }
-            }
-        }
+        setContentView(R.layout.activity_main)
+        title = "AI陪伴"
     }
 }
